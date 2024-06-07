@@ -21,8 +21,8 @@ Conclusion
 Future Works
 1. Loading Data and EDA
 Code
-python
-Copy code
+pyt
+
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -64,8 +64,8 @@ sns.scatterplot(x="step", y="amount", color='orange', data=fraud)
 plt.show()
 2. Feature Engineering
 Code
-python
-Copy code
+pyt
+
 # Filter only 'TRANSFER' and 'CASH_OUT' types
 data_by_type = data[data['type'].isin(['TRANSFER', 'CASH_OUT'])]
 
@@ -81,8 +81,8 @@ df.loc[df.type == 'TRANSFER', 'type'] = 0
 3. Machine Learning
 3.1. Baseline Models
 Code
-python
-Copy code
+pyt
+
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
@@ -116,8 +116,8 @@ for classifier in classifiers:
     ml_func(classifier)
 3.2. Grid Search for Best Hyper-parameters
 Code
-python
-Copy code
+pyt
+
 from sklearn.model_selection import GridSearchCV
 
 # Grid search function
@@ -137,8 +137,8 @@ xgb_params = grid_src(XGBClassifier(), param_grid_xg)
 3.3. Dealing with Unbalanced Data
 3.3.1. Balancing Data via Oversampling with SMOTE
 Code
-python
-Copy code
+pyt
+
 from imblearn.over_sampling import SMOTE
 
 # Resample data using SMOTE
@@ -155,8 +155,8 @@ run_model(rf_model, X_train_smote, y_train_smote, X_test_smote, y_test_smote)
 run_model(xgb_model, X_train_smote, y_train_smote, X_test_smote, y_test_smote)
 3.3.2. Subsampling Data from the Original Dataset
 Code
-python
-Copy code
+pyt
+
 # Filter 'TRANSFER' and 'CASH_OUT' types
 data2 = data[data['type'].isin(['TRANSFER', 'CASH_OUT'])]
 safe_2 = data2[data2['isFraud'] == 0]
@@ -190,8 +190,8 @@ The final pipeline includes data preprocessing, feature engineering, model train
 
 5. Feature Importance
 Code
-python
-Copy code
+pyt
+
 # Feature importance for RandomForest
 import numpy as np
 import matplotlib.pyplot as plt
@@ -227,26 +227,22 @@ Libraries: pandas, numpy, seaborn, matplotlib, scikit-learn, xgboost, imbalanced
 Installation
 Clone the repository:
 
-sh
-Copy code
-git clone https://github.com/your-repo/fraud-detection.git
+
+git clone https://github.com/Giddy-K/fraud-detection.git
 cd fraud-detection
 Create a virtual environment:
 
-sh
-Copy code
+
 python -m venv venv
 source venv/bin/activate   # On Windows use `venv\Scripts\activate`
 Install the required packages:
 
-sh
-Copy code
+
 pip install -r requirements.txt
 Running the Project
 Place the paysim.csv dataset in the project directory.
 Run the main script:
-sh
-Copy code
+
 python main.py
 This will execute the entire pipeline from data loading, EDA, feature engineering, model training, and evaluation, as well as visualizing feature importance.
 
