@@ -1,17 +1,19 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
+import os
 
-def exploratory_data_analysis(data):
-    # Plot distribution of transactions over time
+def perform_eda(data):
     plt.figure(figsize=(10, 3))
-    sns.distplot(data[data['isFraud'] == 0].step, label="Safe Transaction")
-    sns.distplot(data[data['isFraud'] == 1].step, label='Fraud Transaction')
-    plt.xlabel('Hour')
-    plt.ylabel('Number of Transactions')
-    plt.title('Distribution of Transactions over the Time')
+    sns.histplot(data[data['isFraud'] == 0].step, label="Safe Transaction", kde=True)
+    sns.histplot(data[data['isFraud'] == 1].step, label="Fraud Transaction", kde=True)
     plt.legend()
-    plt.show()
-    
-    # Other plots and analyses...
 
-    # Note: Add more EDA plots and analysis as needed
+    # Save the plot as a PNG file
+    output_folder = 'static'  # Create a 'static' folder to store the image
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+
+    image_path = os.path.join(output_folder, 'eda_result.png')
+    plt.savefig(image_path)  # Save as PNG
+
+    return image_path
