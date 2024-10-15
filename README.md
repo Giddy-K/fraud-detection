@@ -21,7 +21,7 @@ The dataset used is the Paysim dataset from Kaggle, which simulates mobile money
     - 3.3. Dealing with Unbalanced Data
         - 3.3.1. Balancing Data via Oversampling with SMOTE
         - 3.3.2. Subsampling Data from the Original Dataset
-        - 3.3.3. Performing SMOTE on the New Data
+        - 3.3.3. Performing SMOTE on the New Data. 
 
 4. **Machine Learning Pipeline**
     - Overview of the final pipeline including data preprocessing, feature engineering, model training, and evaluation.
